@@ -1,35 +1,39 @@
 import styled from "styled-components";
+import * as icons from "lucide-react";
+import Icon from "./Icon";
 
 interface IButtonCommonProps {
-  widthFull: boolean;
+  widthFull?: boolean;
   bgcColor: string;
   message: string;
-  iconSrc?: string;
   borderRadius?: string;
   textSize?: string;
   reverse?: boolean;
   isSubmit?: boolean;
   onclick?: () => void;
+  iconName?: keyof typeof icons;
+  iconSize?: number;
 }
 
 const ButtonCommon: React.FC<IButtonCommonProps> = ({
   widthFull,
   bgcColor,
   message,
-  iconSrc,
   borderRadius,
   textSize,
   reverse,
   isSubmit,
   onclick,
+  iconName,
+  iconSize,
 }) => {
   return (
     <Button
       className="flex items-center justify-center h-12 px-6 gap-x-2"
       $bgcColor={bgcColor}
-      $width={widthFull}
+      $width={widthFull || true}
       $brdr={borderRadius || "16px"}
-      $reverse={reverse && iconSrc ? true : false}
+      $reverse={reverse && iconName ? true : false}
       $border={bgcColor === "White"}
       type={isSubmit ? "submit" : "button"}
       onClick={onclick}
@@ -40,7 +44,13 @@ const ButtonCommon: React.FC<IButtonCommonProps> = ({
       >
         {message}
       </Text>
-      {iconSrc && <img src={iconSrc} />}
+      {iconName && (
+        <Icon
+          name={iconName}
+          color={bgcColor === "White" ? "#004390" : "#fff"}
+          size={iconSize}
+        />
+      )}
     </Button>
   );
 };

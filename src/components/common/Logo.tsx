@@ -6,7 +6,7 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ widthImage }) => {
   return (
-    <div className="flex items-center justify-center gap-x-4">
+    <div className="flex items-center gap-x-4">
       <img
         src={imageLogo}
         alt="logo"

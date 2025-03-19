@@ -49,7 +49,6 @@ const FormLogin = () => {
 
       <div className="mt-2">
         <ButtonCommon
-          widthFull={true}
           message="Đăng nhập"
           bgcColor="Xanh-mobifone"
           borderRadius="14px"

@@ -7,7 +7,6 @@ const Buttons = () => {
   return (
     <div className="flex gap-x-3">
       <ButtonCommon
-        widthFull={true}
         bgcColor="White"
         message="Quay lại"
         borderRadius="480px"
@@ -15,7 +14,6 @@ const Buttons = () => {
       />
 
       <ButtonCommon
-        widthFull={true}
         bgcColor="Xanh-mobifone"
         message="Gửi"
         borderRadius="480px"

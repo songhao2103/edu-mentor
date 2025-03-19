@@ -49,7 +49,6 @@ const FormRegister = () => {
 
       <div className="mt-2">
         <ButtonCommon
-          widthFull={true}
           message="Đăng ký"
           bgcColor="Xanh-mobifone"
           borderRadius="14px"

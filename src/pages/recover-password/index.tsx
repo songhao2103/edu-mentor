@@ -5,11 +5,14 @@ const index = () => {
   return (
     <div>
       <Logo widthImage="100" />
-      <p className="mt-2 text-center text-bv-xanh-24">Quên mật khẩu</p>
-      <p className="mt-4 mb-6 text-bv-label-secondary-14">
+      <p className="mt-2 text-center text-bv-24 text-XanhMobifone">
+        Quên mật khẩu
+      </p>
+      <p className="mt-4 mb-6 text-center text-bv-14 text-LabelSecondary">
         Để lấy lại mật khẩu, quý khách vui lòng nhập số điện thoại của tài khoản
       </p>
-      {/* text thông báo */}
+
+      {/* text alert */}
 
       <Buttons />
     </div>
