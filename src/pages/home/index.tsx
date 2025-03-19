@@ -1,11 +1,5 @@
-import Header from "../../components/layouts/header/Header";
-
 const index = () => {
-  return (
-    <div className="">
-      <Header />
-    </div>
-  );
+  return <div className="">Home</div>;
 };
 
 export default index;

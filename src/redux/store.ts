@@ -1,6 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
+import userReducer from "./features/userSlice.ts";
 
-const store = configureStore({ reducer: {} });
+const store = configureStore({
+  reducer: {
+    user: userReducer,
+  },
+});
 
 //store.getState trả về toàn bộ state của store
 //ReturnType<typeof store.getState> sử dụng utility type để tự động suy ra kiểu dữ liệu của state từ hàm getState
