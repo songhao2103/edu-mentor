@@ -1,8 +1,6 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import IFormRegister from "../../utils/interface/formRegister";
-import iconKey from "../../../public/asset/icons/key.svg";
-import iconUser from "../../../public/asset/icons/user.svg";
 import InputCommon from "./InputCommon.tsx";
 import ButtonCommon from "./ButtonCommon.tsx";
 
@@ -36,7 +34,7 @@ const FormLogin = () => {
         id="nameAccount"
         name="nameAccount"
         placeholder="Nhập thông tin tài khoản"
-        iconSrc={iconUser}
+        iconName="CircleUser"
       />
       <InputCommon
         type="password"
@@ -44,7 +42,7 @@ const FormLogin = () => {
         id="password"
         name="password"
         placeholder="Nhập mật khẩu"
-        iconSrc={iconKey}
+        iconName="KeyRound"
       />
 
       <div className="mt-2">

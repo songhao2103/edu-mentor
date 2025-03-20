@@ -1,11 +1,15 @@
 import { useMemo, useState } from "react";
 import { FormikProps } from "formik";
+import * as icons from "lucide-react";
 import IFormRegister from "../../utils/interface/formRegister";
+import Icon from "./Icon";
 
 //interface props
 interface InputCommonProps {
   type: string;
-  iconSrc?: string;
+  iconName?: keyof typeof icons;
+  iconColor?: string;
+  iconSize?: number;
   label?: string;
   placeholder: string;
   formik: FormikProps<IFormRegister>;
@@ -16,7 +20,9 @@ interface InputCommonProps {
 //Conponent
 const InputCommon: React.FC<InputCommonProps> = ({
   label,
-  iconSrc,
+  iconSize,
+  iconColor,
+  iconName,
   placeholder,
   formik,
   name,
@@ -34,11 +40,14 @@ const InputCommon: React.FC<InputCommonProps> = ({
     <div>
       {label && <label>{label}</label>}
       <div className="relative">
-        {iconSrc && (
-          <img
-            src={iconSrc}
-            className="absolute left-4 top-[50%] translate-y-[-50%]"
-          ></img>
+        {iconName && (
+          <div className="absolute left-[16px] top-[50%] translate-y-[-50%]">
+            <Icon
+              name={iconName}
+              color={iconColor || "#000"}
+              size={iconSize || 20}
+            />
+          </div>
         )}
         <input
           type={inputType}
@@ -49,7 +58,7 @@ const InputCommon: React.FC<InputCommonProps> = ({
           onChange={formik?.handleChange} // <-- handleChange
           onBlur={formik?.handleBlur} // <-- handleBlur
           className="w-full py-2 border-[1px] border-strokeM rounded-[12px] outline-none pr-4"
-          style={iconSrc ? { paddingLeft: "44px" } : { paddingLeft: "16px" }}
+          style={iconName ? { paddingLeft: "44px" } : { paddingLeft: "16px" }}
         />
 
         {type === "password" && (
@@ -58,9 +67,9 @@ const InputCommon: React.FC<InputCommonProps> = ({
             onClick={() => setShowPassword(!showPassword)}
           >
             {showPassword ? (
-              <i className="fa-regular fa-eye"></i>
+              <Icon name="Eye" color="#1C1C1E" size={20} />
             ) : (
-              <i className="fa-regular fa-eye-slash"></i>
+              <Icon name="EyeOff" color="#1C1C1E" size={20} />
             )}
           </div>
         )}

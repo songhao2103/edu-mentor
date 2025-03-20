@@ -5,8 +5,8 @@ import * as icons from "lucide-react";
 import optionsNavBar from "./optionsNavBar.ts";
 import Icon from "../../common/Icon";
 import Logo from "../../common/Logo";
-import imageNavbar from "../../../../public/asset/images/imageNavBar.png";
 import ButtonCommon from "../../common/ButtonCommon.tsx";
+import UpgradePackage from "../../common/UpgradePackage.tsx";
 
 interface NavigationBarProps {
   handleHiddenNavBar: () => void;
@@ -32,7 +32,6 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
       <Layout
         className="fixed top-0 bottom-0 left-0 right-0 z-20 bg-black transition-all-spinSlow"
         $hiddenNavBar={hiddenNavBar}
-        onClick={handleHiddenNavBar}
       ></Layout>
       <NavBar
         $hiddenNavBar={hiddenNavBar}
@@ -81,25 +80,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
             ))}
           </div>
 
-          <div className="mt-4 bg-[#FFF8E1]  px-[21px] py-[18px] rounded-[8px] relative mb-4">
-            <p className="text-bv-16 font-[600] leading-[22px]">
-              Nâng cấp gói cước của bạn
-            </p>
-            <p className="text-bv-14 text-[11px] text-Text2 mt-1">
-              Bạn sẽ nhận được nhiều lợi ích hơn khi nâng gói cước, bấm vào nâng
-              gói cước để tìm hiểu thêm
-            </p>
-            <Link
-              to={"#"}
-              className="text-bv-14 font-[600]  text-Text1 leading-[22px] mt-6 bg-[#FFE57F] inline-flex h-9 w-[120px] justify-center items-center rounded-[8px]"
-            >
-              Nâng gói cước
-            </Link>
-
-            <div className="absolute bottom-0 right-0">
-              <img src={imageNavbar} alt="" />
-            </div>
-          </div>
+          <UpgradePackage bgColor="#FFF8E1" bgColorButton="#FFE57F" />
 
           <div>
             <ButtonCommon
@@ -119,7 +100,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
 export default NavigationBar;
 
 const Layout = styled.div<{ $hiddenNavBar: boolean }>`
-  z-index: ${(props) => (props.$hiddenNavBar ? "-999" : "20")};
+  z-index: ${(props) => (props.$hiddenNavBar ? "20" : "-999")};
   opacity: ${(props) => (props.$hiddenNavBar ? "0.4" : "0")};
   transition: all 0.3s ease;
 `;

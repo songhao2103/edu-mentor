@@ -3,16 +3,17 @@ import * as icons from "lucide-react";
 import Icon from "./Icon";
 
 interface IButtonCommonProps {
-  widthFull?: boolean;
-  bgcColor: string;
-  message: string;
-  borderRadius?: string;
-  textSize?: string;
-  reverse?: boolean;
-  isSubmit?: boolean;
+  widthFull?: boolean; //chiều rộng của button, mặc định không full
+  bgcColor: string; //màu nền button
+  message: string; //text
+  borderRadius?: string; //Mặc định 16px
+  textSize?: string; //Mặc định 16px
+  reverse?: boolean; //Đổi chiều icon với text nếu có icon
+  isSubmit?: boolean; //Type của button, mặc định type: "button"
   onclick?: () => void;
-  iconName?: keyof typeof icons;
-  iconSize?: number;
+  iconName?: keyof typeof icons; //icon của button, mặc định không
+  iconSize?: number; //iconSize của button, mặc định 16px
+  boxShadow?: string; //mặc định Xanh-mobifone
 }
 
 const ButtonCommon: React.FC<IButtonCommonProps> = ({
@@ -26,6 +27,7 @@ const ButtonCommon: React.FC<IButtonCommonProps> = ({
   onclick,
   iconName,
   iconSize,
+  boxShadow,
 }) => {
   return (
     <Button
@@ -35,6 +37,7 @@ const ButtonCommon: React.FC<IButtonCommonProps> = ({
       $brdr={borderRadius || "16px"}
       $reverse={reverse && iconName ? true : false}
       $border={bgcColor === "White"}
+      $boxShadow={boxShadow || "Xanh-mobifone"}
       type={isSubmit ? "submit" : "button"}
       onClick={onclick}
     >
@@ -64,6 +67,7 @@ const Button = styled.button<{
   $brdr: string;
   $reverse: boolean;
   $border: boolean;
+  $boxShadow: string;
 }>`
   background-color: ${(props) =>
     props.$bgcColor === "Xanh-mobifone"
@@ -75,6 +79,7 @@ const Button = styled.button<{
   border-radius: ${(props) => props.$brdr};
   flex-direction: ${(props) => (props.$reverse ? "row-reverse" : "none")};
   border: ${(props) => (props.$border ? "1px solid  #E3E8EF" : "none")};
+  box-shadow: var(--${(props) => props.$boxShadow});
 `;
 
 //styled Text

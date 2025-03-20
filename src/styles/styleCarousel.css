@@ -1,0 +1,28 @@
+.swiper-pagination-bullet {
+  width: 16px;
+  height: 6px;
+  background: #000; /* Màu nền mặc định */
+  transition: all 0.3s;
+  border-radius: 20px;
+}
+
+/* Tùy chỉnh chấm active */
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: var(--Xanh-mobifone); /* Màu nền khi active */
+}
+
+/* Tùy chỉnh vị trí container pagination nếu cần */
+.swiper-pagination {
+  bottom: 14px !important;
+}
+
+.swiper-container {
+  padding-bottom: 40px;
+  width: 100vw;
+}
+
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+  border-radius: 24px;
+}

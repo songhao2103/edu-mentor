@@ -2,13 +2,14 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Fragment } from "react/jsx-runtime";
 import { publicRoutes, privateRoutes } from "./routes";
 import "./App.css";
+
 import { ElementType } from "react";
 import PrivateRoutes from "./components/common/PrivateRoutes";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="App sm:bg-amber-100 px-[20px] py-[24px]">
+      <div className="App sm:bg-amber-100 ">
         <Routes>
           {/* public */}
           {publicRoutes.map((route, index) => {

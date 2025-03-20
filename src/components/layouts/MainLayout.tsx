@@ -5,11 +5,10 @@ interface IMainLayoutProps {
   children: ReactNode;
 }
 const MainLayout: React.FC<IMainLayoutProps> = ({ children }) => {
-  "main";
   return (
     <div>
       <Header />
-      <div>{children}</div>
+      <div className="mt-16">{children}</div>
     </div>
   );
 };
