@@ -1,4 +1,3 @@
-import Cookies from "js-cookie";
 import { loginApi } from "../../services/authApi";
 import { useMutation } from "@tanstack/react-query";
 import { ILoginByGoogle } from "../../utils/interface/requestBody";

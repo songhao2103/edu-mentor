@@ -1,8 +1,6 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import IFormRegister from "../../utils/interface/formRegister";
-import iconKey from "../../../public/asset/icons/key.svg";
-import iconUser from "../../../public/asset/icons/user.svg";
+import { IFormRegister } from "../../utils/interface/form.ts";
 import InputCommon from "./InputCommon.tsx";
 import ButtonCommon from "./ButtonCommon.tsx";
 
@@ -29,14 +27,14 @@ const FormRegister = () => {
   });
 
   return (
-    <div className="flex flex-col gap-y-2">
+    <form className="flex flex-col gap-y-2">
       <InputCommon
         type="text"
         formik={formik}
         id="nameAccount"
         name="nameAccount"
         placeholder="Nhập thông tin tài khoản"
-        iconSrc={iconUser}
+        iconName="CircleUser"
       />
       <InputCommon
         type="password"
@@ -44,7 +42,7 @@ const FormRegister = () => {
         id="password"
         name="password"
         placeholder="Nhập mật khẩu"
-        iconSrc={iconKey}
+        iconName="KeyRound"
       />
 
       <div className="mt-2">
@@ -55,7 +53,7 @@ const FormRegister = () => {
           isSubmit={true}
         />
       </div>
-    </div>
+    </form>
   );
 };
 

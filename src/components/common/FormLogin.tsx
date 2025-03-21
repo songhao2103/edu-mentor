@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import IFormRegister from "../../utils/interface/formRegister";
+import { IFormRegister } from "../../utils/interface/form.ts";
 import InputCommon from "./InputCommon.tsx";
 import ButtonCommon from "./ButtonCommon.tsx";
 
@@ -27,7 +27,7 @@ const FormLogin = () => {
   });
 
   return (
-    <div className="flex flex-col gap-y-2">
+    <form className="flex flex-col gap-y-2">
       <InputCommon
         type="text"
         formik={formik}
@@ -53,7 +53,7 @@ const FormLogin = () => {
           isSubmit={true}
         />
       </div>
-    </div>
+    </form>
   );
 };
 

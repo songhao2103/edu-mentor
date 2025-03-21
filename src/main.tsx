@@ -3,11 +3,11 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
+import "./styles/global.css";
 import App from "./App.tsx";
 import BackgroundLayout from "./components/layouts/BackgroundLayout.tsx";
 import "./index.css";
 import store from "./redux/store.ts";
-import "./styles/global.css";
 
 const queryClient = new QueryClient({
   defaultOptions: {

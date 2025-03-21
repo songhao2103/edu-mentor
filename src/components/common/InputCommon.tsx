@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
 import { FormikProps } from "formik";
 import * as icons from "lucide-react";
-import IFormRegister from "../../utils/interface/formRegister";
 import Icon from "./Icon";
 
 //interface props
@@ -12,7 +11,7 @@ interface InputCommonProps {
   iconSize?: number;
   label?: string;
   placeholder: string;
-  formik: FormikProps<IFormRegister>;
+  formik: FormikProps<T>;
   name: string;
   id: string;
 }
@@ -38,7 +37,11 @@ const InputCommon: React.FC<InputCommonProps> = ({
 
   return (
     <div>
-      {label && <label>{label}</label>}
+      {label && (
+        <label className="block mb-2 font-bold text-bv-14 text-Text1">
+          {label}
+        </label>
+      )}
       <div className="relative">
         {iconName && (
           <div className="absolute left-[16px] top-[50%] translate-y-[-50%]">
@@ -57,7 +60,7 @@ const InputCommon: React.FC<InputCommonProps> = ({
           value={formik?.values[name]}
           onChange={formik?.handleChange} // <-- handleChange
           onBlur={formik?.handleBlur} // <-- handleBlur
-          className="w-full py-2 border-[1px] border-strokeM rounded-[12px] outline-none pr-4"
+          className="w-full py-3 border-[1px] border-strokeM rounded-[12px] outline-none pr-4"
           style={iconName ? { paddingLeft: "44px" } : { paddingLeft: "16px" }}
         />
 
