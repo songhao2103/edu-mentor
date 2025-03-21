@@ -1,10 +1,9 @@
+import { ElementType } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Fragment } from "react/jsx-runtime";
-import { publicRoutes, privateRoutes } from "./routes";
 import "./App.css";
-
-import { ElementType } from "react";
 import PrivateRoutes from "./components/common/PrivateRoutes";
+import { privateRoutes, publicRoutes } from "./routes";
 
 function App() {
   return (
