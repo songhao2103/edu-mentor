@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, memo } from "react";
 import { FormikProps } from "formik";
 import * as icons from "lucide-react";
 import Icon from "./Icon";
@@ -86,4 +86,4 @@ const InputCommon: React.FC<InputCommonProps> = ({
   );
 };
 
-export default InputCommon;
+export default memo(InputCommon);

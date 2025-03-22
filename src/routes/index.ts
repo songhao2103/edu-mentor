@@ -5,6 +5,8 @@ import RecoverPassword from "../pages/recover-password";
 import Home from "../pages/home";
 import MainLayout from "../components/layouts/MainLayout.tsx";
 import IntroduceYourself from "../pages/introduce-yourself";
+import UserProfile from "../pages/user-profile";
+import MultipleChoiceExam from "../pages/multiple-choice-exam";
 
 interface IPublicRoutes {
   path: string;
@@ -21,4 +23,10 @@ export const publicRoutes: IPublicRoutes[] = [
 
 export const privateRoutes: IPublicRoutes[] = [
   { path: "/", component: Home, layout: MainLayout },
+  { path: "/user-profile", component: UserProfile, layout: MainLayout },
+  {
+    path: "/multiple-choice-exam",
+    component: MultipleChoiceExam,
+    layout: MainLayout,
+  },
 ];

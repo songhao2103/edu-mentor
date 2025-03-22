@@ -16,7 +16,7 @@ const UpgradePackage: React.FC<IUpgradePackage> = ({
 }) => {
   return (
     <div
-      className="mt-4  px-[21px] py-[18px] rounded-[8px] relative mb-4"
+      className="mt-4 px-[21px] py-[18px] rounded-[8px] relative"
       style={{ backgroundColor: bgColor }}
     >
       <p

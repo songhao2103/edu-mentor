@@ -1,7 +1,7 @@
 import DataListCustom from "./DataListCustom";
 import * as Yup from "yup";
 import phoneCodes from "../../datas/codePhonesOfCountries";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useFormik } from "formik";
 import { isValidPhoneNumber } from "libphonenumber-js";
 import InputCommon from "./InputCommon";
@@ -15,8 +15,8 @@ const SelectPhoneNumber: React.FC<ISelectPhoneNumberProps> = ({
   handleChangePhoneNumber,
   phoneNumberDefault,
 }) => {
-  const [phoneCode, setPhoneCode] = useState({
-    phoneCode: phoneCodes[0],
+  const phoneCode = useRef<{ phoneCode: string }>({
+    phoneCode: "",
   });
 
   const formik = useFormik({
@@ -27,7 +27,7 @@ const SelectPhoneNumber: React.FC<ISelectPhoneNumberProps> = ({
     validationSchema: Yup.object({
       localPhone: Yup.string()
         .test("is-valid-phone", "Số điện thoại không đúng định dạng", (value) =>
-          isValidPhoneNumber(phoneCode.phoneCode + value || "", "VN")
+          isValidPhoneNumber(phoneCode.current.phoneCode + value || "", "VN")
         )
         .required("Số điện thoại là bắt buộc"),
     }),
@@ -37,14 +37,16 @@ const SelectPhoneNumber: React.FC<ISelectPhoneNumberProps> = ({
     },
   });
 
-  const handleChangePhoneCode = (field: string, value: string) => {
-    setPhoneCode({ ...phoneCode, [field]: value });
-  };
-
   //cập nhật lại phoneNumber ở component cha
   useEffect(() => {
-    handleChangePhoneNumber(phoneCode.phoneCode + formik.values.localPhone);
+    handleChangePhoneNumber(
+      phoneCode.current.phoneCode + formik.values.localPhone
+    );
   }, [formik.values, phoneCode]);
+
+  const handleChangePhoneCode = (field: string, value: string) => {
+    phoneCode.current = { ...phoneCode.current, [field]: value };
+  };
 
   return (
     <div className="flex gap-x-3">

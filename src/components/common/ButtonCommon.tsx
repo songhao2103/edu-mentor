@@ -3,7 +3,7 @@ import * as icons from "lucide-react";
 import Icon from "./Icon";
 
 interface IButtonCommonProps {
-  widthFull?: boolean; //chiều rộng của button, mặc định không full
+  widthFull?: "full" | "auto"; //chiều rộng của button, mặc định không full
   bgcColor: string; //màu nền button
   message: string; //text
   borderRadius?: string; //Mặc định 16px
@@ -31,13 +31,13 @@ const ButtonCommon: React.FC<IButtonCommonProps> = ({
 }) => {
   return (
     <Button
-      className="flex items-center justify-center h-12 px-6 gap-x-2"
+      className="inline-flex items-center justify-center h-12 px-6 gap-x-2"
       $bgcColor={bgcColor}
-      $width={widthFull || true}
+      $width={widthFull === "auto" ? false : true}
       $brdr={borderRadius || "16px"}
       $reverse={reverse && iconName ? true : false}
       $border={bgcColor === "White"}
-      $boxShadow={boxShadow || "Xanh-mobifone"}
+      $boxShadow={boxShadow || "0px 6px 12px 0px rgba(63, 140, 255, 0.26)"}
       type={isSubmit ? "submit" : "button"}
       onClick={onclick}
     >
@@ -78,7 +78,7 @@ const Button = styled.button<{
   width: ${(props) => (props.$width ? "100%" : "auto")};
   border-radius: ${(props) => props.$brdr};
   flex-direction: ${(props) => (props.$reverse ? "row-reverse" : "none")};
-  border: ${(props) => (props.$border ? "1px solid  #E3E8EF" : "none")};
+  border: ${(props) => (props.$border ? "1px solid  #ccc" : "none")};
   box-shadow: var(--${(props) => props.$boxShadow});
 `;
 

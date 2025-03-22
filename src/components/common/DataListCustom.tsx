@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import Icon from "./Icon";
 import styled from "styled-components";
 
@@ -7,6 +7,7 @@ interface IDataListCustomProps {
   listDatas: string[];
   handleSelect: (field: string, value: string) => void; //hàm để cập nhật giá trị được chọn ở component cha
   valueDefault?: string; //Giá trị ban đầu của dataList
+  label?: string;
 }
 
 const DataListCustom: React.FC<IDataListCustomProps> = ({
@@ -14,6 +15,7 @@ const DataListCustom: React.FC<IDataListCustomProps> = ({
   listDatas,
   handleSelect,
   valueDefault,
+  label,
 }) => {
   const [valueSelected, setValueSelected] = useState(
     valueDefault || listDatas[0]
@@ -36,8 +38,10 @@ const DataListCustom: React.FC<IDataListCustomProps> = ({
     //ẩn data list
     handleHiddenListData(false);
   };
+
   return (
     <div className="relative">
+      {label && <p className="mb-3 font-bold text-bv-14 text-Text1">{label}</p>}
       <div
         className="flex items-center justify-between h-[50px] px-4 border border-Text1 rounded-[8px] bg-White"
         onClick={() => handleHiddenListData(true)}
@@ -60,7 +64,7 @@ const DataListCustom: React.FC<IDataListCustomProps> = ({
         {listDatas.map((data, index) => (
           <p
             key={index}
-            className="py-1"
+            className="w-full py-1 text-center border-b"
             onClick={() => handleSelectData(data)}
           >
             {data}
@@ -71,7 +75,7 @@ const DataListCustom: React.FC<IDataListCustomProps> = ({
   );
 };
 
-export default DataListCustom;
+export default memo(DataListCustom);
 
 const BoxIcon = styled.div<{ $hiddenList: boolean }>`
   transform: rotate(${(props) => (props.$hiddenList ? "180deg" : "0deg")});

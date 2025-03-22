@@ -13,6 +13,7 @@
   /* box-shadow */
   --Shadow-Xanh-mobifone: 0px 6px 12px 0px rgba(63, 140, 255, 0.26);
   --Shadow-White: 0px 5px 14px 0px rgba(119, 123, 225, 0.25);
+  --Shadow-subject-light: " 0px 1px 2px 0px rgba(184, 200, 224, 0.22)";
 }
 
 @media (max-width: 640px) {
@@ -102,4 +103,9 @@
     font-weight: 600;
     line-height: 26px; /* 260% */
   }
+}
+
+/* ẩn thanh scrol */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }

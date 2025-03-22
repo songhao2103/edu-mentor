@@ -1,14 +1,32 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import avatarDefault from "../../../../public/asset/images/avatarDefault.png";
-import NavigationBar from "../popups/NavigationBar";
 import Icon from "../../common/Icon.tsx";
+import Logout from "../popups/Logout.tsx";
+import NavigationBar from "../popups/NavigationBar";
+import Notification from "../popups/Notification.tsx";
+import OptionsAccount from "../popups/OptionsAccount.tsx";
 
 const Header = () => {
   const [hiddenNavBar, setHiddenNavBar] = useState(false);
+  const [hiddenOptionsAccount, setHiddenOptionsAccount] = useState(false);
+  const [hiddenNotification, setHiddenNotification] = useState(false);
+  const [hiddenLogout, setHiddenLogout] = useState(false);
 
   const handleHiddenNavBar = () => {
     setHiddenNavBar((prev) => !prev);
   };
+
+  const handleHiddenOptionsAccount = useCallback((value: boolean) => {
+    setHiddenOptionsAccount(value);
+  }, []);
+
+  const handleHiddenNotification = useCallback((value: boolean) => {
+    setHiddenNotification(value);
+  }, []);
+
+  const handleHiddenLogout = useCallback((value: boolean) => {
+    setHiddenLogout(value);
+  }, []);
 
   return (
     <div className="">
@@ -22,10 +40,16 @@ const Header = () => {
           </div>
 
           <div className="flex items-center gap-x-3">
-            <div className="flex items-center justify-center w-10 h-10 bg-Background2 rounded-[8px]">
+            <div
+              className="flex items-center justify-center w-10 h-10 bg-Background2 rounded-[8px]"
+              onClick={() => handleHiddenNotification(true)}
+            >
               <Icon name="Bell" size={25} color="#004390" />
             </div>
-            <div className="flex h-[52px] w-[100px] bg-XanhMobifone items-center rounded-[30px]">
+            <div
+              className="flex h-[52px] w-[100px] bg-XanhMobifone items-center rounded-[30px]"
+              onClick={() => handleHiddenOptionsAccount(true)}
+            >
               <div className="h-[35px] w-[35px] rounded-full bg-[red] ml-2 mr-[17px] ">
                 <img
                   src={avatarDefault}
@@ -44,6 +68,22 @@ const Header = () => {
       <NavigationBar
         hiddenNavBar={hiddenNavBar}
         handleHiddenNavBar={handleHiddenNavBar}
+      />
+
+      <OptionsAccount
+        handleHiddenOptionsAccount={handleHiddenOptionsAccount}
+        hiddenOptionsAccount={hiddenOptionsAccount}
+        handleHiddenLogout={handleHiddenLogout}
+      />
+
+      <Notification
+        handleHiddenNotification={handleHiddenNotification}
+        hiddenNotification={hiddenNotification}
+      />
+
+      <Logout
+        handleHiddenLogout={handleHiddenLogout}
+        hiddenLogout={hiddenLogout}
       />
     </div>
   );

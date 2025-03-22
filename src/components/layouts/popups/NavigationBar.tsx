@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import * as icons from "lucide-react";
-import optionsNavBar from "./optionsNavBar.ts";
+import optionsNavBar from "../../../datas/optionsNavBar.ts";
 import Icon from "../../common/Icon";
 import Logo from "../../common/Logo";
 import ButtonCommon from "../../common/ButtonCommon.tsx";
