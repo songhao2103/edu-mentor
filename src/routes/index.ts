@@ -7,6 +7,8 @@ import MainLayout from "../components/layouts/MainLayout.tsx";
 import IntroduceYourself from "../pages/introduce-yourself";
 import UserProfile from "../pages/user-profile";
 import MultipleChoiceExam from "../pages/multiple-choice-exam";
+import ExamComfirmation from "../pages/exam-comfirmation";
+import TakeTheExam from "../pages/take-the-exam";
 
 interface IPublicRoutes {
   path: string;
@@ -27,6 +29,16 @@ export const privateRoutes: IPublicRoutes[] = [
   {
     path: "/multiple-choice-exam",
     component: MultipleChoiceExam,
+    layout: MainLayout,
+  },
+  {
+    path: "/exam-comfirmation",
+    component: ExamComfirmation,
+    layout: MainLayout,
+  },
+  {
+    path: "/take-the-exam",
+    component: TakeTheExam,
     layout: MainLayout,
   },
 ];
